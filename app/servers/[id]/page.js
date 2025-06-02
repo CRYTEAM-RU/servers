@@ -8,8 +8,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServerPage({ params }) {
-  const server = defaultServers.find(s => s.id === Number(params.id));
+export default function ServerPage({ params, searchParams }) {
+  const serverId = searchParams?.id || params?.id;
+  const server = defaultServers.find(s => s.id === Number(serverId));
   
   if (!server) {
     return <div className="text-white p-8">Сервер не найден</div>;
