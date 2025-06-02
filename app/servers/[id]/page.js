@@ -4,6 +4,14 @@ import Header from '../../components/Header'
 import { useState, useEffect } from 'react';
 import { getServers, initDefaultServers, setServers } from '../../serverStorage';
 
+// Функция для статической генерации страниц
+export async function generateStaticParams() {
+  const servers = getServers();
+  return servers.map((server) => ({
+    id: server.id.toString(),
+  }));
+}
+
 function HeartIcon({ active }) {
   return (
     <svg width="24" height="24" fill={active ? '#F7070F' : 'none'} stroke="#F7070F" strokeWidth="2" viewBox="0 0 24 24" className="inline align-middle">
@@ -17,24 +25,26 @@ export default function ServerDetailPage({ params }) {
   const [server, setServer] = useState(null);
 
   useEffect(() => {
-    initDefaultServers();
-    const fav = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setFavorites(fav);
+    // Инициализация только на клиенте
+    if (typeof window !== 'undefined') {
+      initDefaultServers();
+      const fav = JSON.parse(localStorage.getItem('favorites') || '[]');
+      setFavorites(fav);
 
-    const updateServerData = () => {
-      const allServers = getServers();
-      const s = allServers.find(s => s.id === Number(params.id));
-      setServer(s);
-    };
+      const updateServerData = () => {
+        const allServers = getServers();
+        const s = allServers.find(s => s.id === Number(params.id));
+        setServer(s);
+      };
 
-    updateServerData();
+      updateServerData();
 
-    window.addEventListener('serversUpdated', updateServerData);
+      window.addEventListener('serversUpdated', updateServerData);
 
-    return () => {
-      window.removeEventListener('serversUpdated', updateServerData);
-    };
-
+      return () => {
+        window.removeEventListener('serversUpdated', updateServerData);
+      };
+    }
   }, [params.id]);
 
   function toggleFavorite(id) {

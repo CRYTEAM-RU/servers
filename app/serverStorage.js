@@ -3,9 +3,12 @@ import { defaultServers } from './defaultServers'; // Убедитесь, что
 const STORAGE_KEY = 'minecraftServers';
 
 export function getServers() {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === 'undefined') {
+    // На сервере возвращаем дефолтные серверы
+    return defaultServers;
+  }
   const serversJson = localStorage.getItem(STORAGE_KEY);
-  return serversJson ? JSON.parse(serversJson) : [];
+  return serversJson ? JSON.parse(serversJson) : defaultServers;
 }
 
 export function setServers(servers) {
