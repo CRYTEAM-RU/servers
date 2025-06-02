@@ -1,0 +1,60 @@
+# Зависимости
+/node_modules
+/.pnp
+.pnp.js
+
+# Тестирование
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Продакшн
+/build
+
+# Разное
+.DS_Store
+*.pem
+
+# Отладка
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Локальные env файлы
+.env*.local
+.env
+
+# Верификация
+.vercel
+
+# Конфиденциальные данные
+*.key
+*.pem
+*.cert
+*.crt
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.truststore
+*.ts
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# IDE и редакторы
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Системные файлы
+Thumbs.db
+desktop.ini 
