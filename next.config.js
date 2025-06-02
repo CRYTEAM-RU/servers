@@ -7,7 +7,11 @@ const nextConfig = {
     unoptimized: true,
   },
   // Отключаем статическую генерацию для динамических маршрутов
-  trailingSlash: true
+  trailingSlash: true,
+  // Отключаем предупреждения о статических параметрах
+  experimental: {
+    appDir: true,
+  }
 }
 
 module.exports = nextConfig 
