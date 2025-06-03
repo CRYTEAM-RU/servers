@@ -10,7 +10,6 @@ const nextConfig = {
   trailingSlash: true,
   // Отключаем предупреждения о статических параметрах
   experimental: {
-    appDir: true,
   }
 }
 

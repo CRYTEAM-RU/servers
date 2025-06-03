@@ -1,7 +1,9 @@
 {
   "name": "minecraft-servers",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "Сайт для отображения Minecraft серверов",
+  "main": "out/index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +11,14 @@
     "export": "next build && next export",
     "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
+  "keywords": [
+    "minecraft",
+    "servers",
+    "nextjs",
+    "react"
+  ],
+  "author": "Ярославтатар",
+  "license": "UNLICENSED",
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "autoprefixer": "^10.4.17",
@@ -18,5 +28,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
