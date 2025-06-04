@@ -12,8 +12,8 @@ export default function Home() {
           <span className="text-primaryLight font-semibold">Наша команда:</span>
           <ul className="text-gray-400">
             <li>• CRYTEAM - Основатель</li>
-            <li>• Ivan — Разработчик</li>
-            <li>• Maria — Дизайнер</li>
+            <li>• CRYTEAM — Разработчик</li>
+            <li>• Cobra — Дизайнер</li>
           </ul>
         </div>
         <Link href="/servers" className="mt-4 bg-primary hover:bg-primaryDark text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95">Перейти к серверам</Link>
